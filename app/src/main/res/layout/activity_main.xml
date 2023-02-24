@@ -1,130 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/vista"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnmonedas"
-        android:layout_width="228dp"
-        android:layout_height="54dp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="monedas"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.268" />
+    <TabHost
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnmasa"
-        android:layout_width="228dp"
-        android:layout_height="54dp"
-        android:text="masa"
-        android:fontFamily="sans-serif-smallcaps"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.37" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnvolumen"
-        android:layout_width="228dp"
-        android:layout_height="51dp"
-        android:text="volumen"
-        android:fontFamily="sans-serif-smallcaps"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.477" />
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/btnlongitud"
-        android:layout_width="228dp"
-        android:layout_height="54dp"
-        android:text="longitud"
-        android:fontFamily="sans-serif-smallcaps"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.587" />
 
-    <Button
-        android:id="@+id/btnalmacenamiento"
-        android:layout_width="228dp"
-        android:layout_height="54dp"
-        android:text="almacenamiento"
-        android:fontFamily="sans-serif-smallcaps"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.818" />
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btntiempo"
-        android:layout_width="228dp"
-        android:layout_height="54dp"
-        android:text="Tiempo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.704" />
+                <RelativeLayout
+                    android:id="@+id/tabArea"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/lblDeArea"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="De:"
+                        android:textStyle="bold" />
+                    <Spinner
+                        android:id="@+id/cboDeArea"
+                        android:entries="@array/conversorArea"
+                        android:layout_marginLeft="40dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
 
-    <Button
-        android:id="@+id/btntransferenciadatos"
-        android:layout_width="228dp"
-        android:layout_height="54dp"
-        android:text="transferencia de datos"
-        android:fontFamily="sans-serif-smallcaps"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.932" />
+                    <TextView
+                        android:id="@+id/lblDeAre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lblDeArea"
+                        android:layout_marginTop="40dp"
+                        android:text="A:"
+                        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="Elija una opción"
-        android:textColor="@color/material_dynamic_primary0"
-        android:textColorHint="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.172" />
+                    <Spinner
+                        android:id="@+id/cboDeAre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lblDeAre"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="-22dp"
+                        android:entries="@array/conversorArea" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="295dp"
-        android:layout_height="34dp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="Conversor Multiple"
-        android:textColor="@color/material_dynamic_primary0"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.706"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.074" />
+                    <EditText
+                        android:id="@+id/txtcantidadAre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/cboDeAre"
+                        android:layout_marginTop="40dp"
+                        android:hint="Cantidad"
+                        android:inputType="number" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                    <EditText
+                        android:id="@+id/IblRespuestaAre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtcantidadAre"
+                        android:layout_marginTop="12dp"
+                        android:inputType="number"
+                        android:text="Respuesta: ?" />
+
+                    <Button
+                        android:id="@+id/btncalcularAre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/IblRespuestaAre"
+                        android:layout_marginTop="92dp"
+                        android:text="Calcular" />
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/cajero"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/lbltitulo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PARCIAL_1"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="160dp"/>
+
+                    <EditText
+                        android:id="@+id/txtnum1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lbltitulo"
+                        android:layout_marginTop="5dp"
+                        android:hint="Cajero automatico"
+                        android:inputType="number" />
+
+
+                    <TextView
+                        android:id="@+id/lblrespuesta"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/btncalcular"
+                        android:layout_marginLeft="140dp"
+                        android:layout_marginTop="38dp"
+                        android:text="Respuesta:?"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/btncalcular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtnum1"
+                        android:layout_marginTop="74dp"
+                        android:layout_marginBottom="10dp"
+                        android:onClick="calcular"
+                        android:text="CALCULAR" />
+
+
+                </RelativeLayout>
+
+
+
+
+
+
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+
+
+
+</RelativeLayout>

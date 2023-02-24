@@ -1,92 +1,73 @@
 package com.ugb.multiconversor;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.Spinner;
+import android.widget.TabHost;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
+    TabHost tbhConversores;
+    RelativeLayout contenidoView;
+    Button btncalcularAre;
+    Spinner spnOptionDe, spnOptionA;
+    conversores miConversor = new conversores();
+    TextView tempVal;
 
-    Button monedas;
-    Button masa;
-    Button volumen;
-    Button longitud;
-    Button tiempo;
-    Button almacenamiento;
-    Button transferenciadatos;
 
-    @SuppressLint("MissingInflatedId")
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        monedas = (Button) findViewById(R.id.btnmonedas);
-        monedas.setOnClickListener(new View.OnClickListener() {
 
-            public void onClick(View view) {
-                Intent monedas = new Intent(MainActivity.this,ConversorMonedas.class);
-                startActivity(monedas);
-            }
-        });
-        masa = (Button) findViewById(R.id.btnmasa);
-        masa.setOnClickListener(new View.OnClickListener() {
+
+        contenidoView = findViewById(R.id.vista);
+        tbhConversores = findViewById(R.id.tabs);
+        tbhConversores.setup();
+
+        tbhConversores.addTab(tbhConversores.newTabSpec("Area").setContent(R.id.tabArea).setIndicator("Area"));
+
+
+
+        btncalcularAre = findViewById(R.id.btncalcularAre);
+        btncalcularAre.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                Intent masa = new Intent(MainActivity.this,ConversorMasa.class);
-                startActivity(masa);
+            public void onClick (View v){
+                try {
+
+                    tempVal = (EditText) findViewById(R.id.txtcantidadAre);
+                    Double cantidad = Double.parseDouble(tempVal.getText().toString());
+
+                    spnOptionDe = findViewById(R.id.cboDeArea);
+                    spnOptionA = findViewById(R.id.cboDeAre);
+                    tempVal = findViewById(R.id.IblRespuestaAre);
+                    tempVal.setText("Respuesta: " + miConversor.covertir(0, spnOptionDe.getSelectedItemPosition(), spnOptionA.getSelectedItemPosition(), cantidad));
+                } catch (Exception ex) {
+                    tempVal = findViewById(R.id.IblRespuestaAre);
+                    tempVal.setText("Por favor ingrese la cantidad");
+                    Toast.makeText(getApplicationContext(), "Por favor ingrese los valores indicados " + ex.getMessage(), Toast.LENGTH_SHORT).show();
+                }
             }
         });
-
-        volumen = (Button) findViewById(R.id.btnvolumen);
-        volumen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent volumen = new Intent(MainActivity.this,ConversorVolumen.class);
-                startActivity(volumen);
-            }
-        });
-
-        longitud = (Button) findViewById(R.id.btnlongitud);
-        longitud.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent longitud = new Intent(MainActivity.this,ConversorLongitud.class);
-                startActivity(longitud);
-            }
-        });
-
-        tiempo = (Button) findViewById(R.id.btntiempo);
-        tiempo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent tiempo = new Intent(MainActivity.this,ConversorTiempo.class);
-                startActivity(tiempo);
-            }
-        });
-
-        almacenamiento = (Button) findViewById(R.id.btnalmacenamiento);
-        almacenamiento.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent almacenamiento = new Intent(MainActivity.this,ConversorAlmacenamiento.class);
-                startActivity(almacenamiento);
-            }
-        });
-
-        transferenciadatos = (Button) findViewById(R.id.btntransferenciadatos);
-        transferenciadatos.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent transferenciadatos = new Intent(MainActivity.this,ConversorTransferenciaDatos.class);
-                startActivity(transferenciadatos);
-            }
-        });
-
-
-
     }
 
+
+}
+
+class conversores {
+
+    Double[][] conversor = {
+            {1., 0.698896, 1.19599, 0.0022857143, 0.0001428571, 0.0001}
+    };
+
+    public double covertir(int option, int de, int a, double cantidad) {
+        return conversor[option][a] / conversor[option][de] * cantidad;
+    }
 }

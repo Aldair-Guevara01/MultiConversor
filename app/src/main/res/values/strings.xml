@@ -1,89 +1,12 @@
 <resources>
-    <string name="app_name">MultiConversor</string>
-    <string-array name="monedas">
-        <item>Dolar</item>
-        <item>Quetzal</item>
-        <item>Lempira</item>
-        <item>Cordoba</item>
-        <item>Peso CR</item>
-        <item>Colon SV</item>
-        <item>Euro</item>
-        <item>Yenes</item>
-        <item>Rupias</item>
-        <item>Libras</item>
-    </string-array>
-    <string-array name="masa">
-        <item>Kilogramo</item>
-        <item>Tonelada</item>
-        <item>Gramo</item>
-        <item>Miligramo</item>
-        <item>Microgramo</item>
-        <item>Onza</item>
-        <item>Libra</item>
-        <item>Stone</item>
-        <item>Tonelada larga</item>
-        <item>Tonelada corta</item>
-    </string-array>
-    <string-array name="volumen">
-        <item>Litro</item>
-        <item>Mililitro</item>
-        <item>Galón</item>
-        <item>Taza</item>
-        <item>Metro cúbico</item>
-        <item>Centímetro cúbico</item>
-        <item>Pinta</item>
-        <item>Onza líquida</item>
-        <item>Cuarto</item>
-        <item>Metro cúbico por segundo</item>
-    </string-array>
-    <string-array name="longitud">
-        <item>Metro</item>
-        <item>Centimetro</item>
-        <item>kilómetro</item>
-        <item>Milímetro</item>
-        <item>Micrómetro</item>
-        <item>Milla</item>
-        <item>Yarda</item>
-        <item>Pie</item>
-        <item>Pulgada</item>
-        <item>Milla Náutica</item>
-    </string-array>
-    <string-array name="tiempo">
-        <item>Minutos</item>
-        <item>Segundos</item>
-        <item>Horas</item>
-        <item>Dias</item>
-        <item>Semanas</item>
-        <item>Meses</item>
-        <item>Años</item>
-        <item>Décadas</item>
-        <item>Siglos</item>
-        <item>Milisegundos</item>
-    </string-array>
-    <string-array name="almacenamiento">
-        <item>Megabyte</item>
-        <item>Byte</item>
-        <item>Kilobyte</item>
-        <item>Kibibyte</item>
-        <item>Mebibyte</item>
-        <item>Gigabyte</item>
-        <item>Gibibyte</item>
-        <item>Terabyte</item>
-        <item>Tebibyte</item>
-        <item>Petabyte</item>
-        <item>Pebibyte</item>
-    </string-array>
-    <string-array name="transferencia_de_datos">
-        <item>Byte</item>
-        <item>Kilobyte</item>
-        <item>Megabyte</item>
-        <item>Gigabyte</item>
-        <item>Terabyte</item>
-        <item>Petabyte</item>
-        <item>Exabyte</item>
-        <item>Zettabyte</item>
-        <item>Yottabyte</item>
-        <item>Bit</item>
-    </string-array>
+        <string name="app_name">Parcial_1</string>
+        <string-array name="conversorArea">
+            <item>Metro Cuadrado</item>
+            <item>Vara Cuadrada</item>
+            <item>Yarda Cuadrada</item>
+            <item>Tareas</item>
+            <item>Manzana</item>
+            <item>Hectárea</item>
+        </string-array>
 
 </resources>
